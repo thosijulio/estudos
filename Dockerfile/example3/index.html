@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ .Title }}</title>
+  </head>
+  <body>
+    <h1>Minha primeira página rodando em Docker.</h1>
+    <h2>{{ .Title }}</h2>
+    <p>
+      Esta página estava dentro de uma imagem, que agora foi executada como um
+      container.
+    </p>
+    <p>{{ .Content }}</p>
+  </body>
+</html>

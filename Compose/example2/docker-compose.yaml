@@ -1,0 +1,27 @@
+# --- EXEMPLO 1 --- Docker Compose
+# Útil p/ rodar varias aplicações que conversam entre si
+version: '3'
+services:
+  frontend:
+    build: frontend/ # P/ criar um container, é possível passar a pasta onde está o dockerfile (o compose fará o build)
+    ports: # Mapeamento de portas: Da mesma forma feita via cmd (docker run -p), especificando a porta local e a do container
+      - 3000:3000
+    restart: on-failure # Comportamento automatico em caso de queda/falha.
+    # NO: não reinicia; ON-FAILURE: reinicia quando exit code != 0;
+    # ALWAYS: sempre que parar é reiniciado; UNLESS-STOPPED: sempre reiniciado, a menos que pare manualmente (docker stop).
+    depends_on: # Dependencia entre serviços: Define os serviços que devem executar antes do serviço atual.
+      - backend
+    volumes:
+      - ./frontend/src:/frontend/src
+  backend:
+    build: backend/
+    ports:
+      - 3001:3001
+    restart: on-failure
+    environment: # Definição de variáveis de ambiente dendos containers.
+      - DB_HOST=database
+    depends_on:
+      - database
+  database: 
+    image: betrybe/docker-compose-example-database:v1 # Também é possível passar uma imagem já criada (local ou remoto)
+    restart: on-failure
