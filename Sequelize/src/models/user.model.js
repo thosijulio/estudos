@@ -8,6 +8,8 @@ const UserModel = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     fullName: DataTypes.STRING,
     email: DataTypes.STRING,
+    phone: DataTypes.STRING,
+    dateBirth: DataTypes.DATE,
   }, { tableName: 'Users' })
 
     // Função responsável por sincronizar a model com os métodos do Sequelize. Ela é definida e já invocada.
