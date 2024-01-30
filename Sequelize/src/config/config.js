@@ -3,6 +3,7 @@ const config = {
   password: '1312',
   database: 'orm_example',
   host: 'localhost',
+  port: '3307',
   dialect: 'mysql',
 }
 
