@@ -2,8 +2,8 @@ const config = {
   username: 'root',
   password: '1312',
   database: 'orm_example',
-  host: 'localhost',
-  port: '3307',
+  host: 'database',
+  port: '3306',
   dialect: 'mysql',
 }
 
