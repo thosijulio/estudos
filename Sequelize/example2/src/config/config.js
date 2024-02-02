@@ -9,6 +9,6 @@ const config = {
 
 module.exports = {
   development: config,
-  teste: config,
+  test: config,
   production: config,
 }

@@ -6,6 +6,7 @@ const CourseSchema = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     creationDate: DataTypes.DATE,
     active: DataTypes.BOOLEAN,
+    duration: DataTypes.INTEGER,
   },
   {
     tableName: 'courses',
