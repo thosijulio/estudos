@@ -1,0 +1,10 @@
+// Arquivo p/ definir o caminho a ser utilizado pelos comandos do sequelize (onde procurar pelas pastas)
+
+const path = require('path'); // módulo do Node p/ trabalhar com arquivos e diretorios
+
+module.exports = {
+  'config': path.resolve('src', 'config', 'config.js'),
+  'models-path': path.resolve('src', 'models'),
+  'seeders-path': path.resolve('src', 'seeders'),
+  'migrations-path': path.resolve('src', 'migrations'),
+}
