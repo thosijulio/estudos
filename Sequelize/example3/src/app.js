@@ -1,10 +1,11 @@
 const express = require('express');
-const courseRoutes = require('./routes/course/router');
+const { courseRoute, studentRoute } = require('./routes/course/router');
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/course', courseRoutes);
+app.use('/course', courseRoute);
+app.use('/student', studentRoute);
 
 module.exports = app;

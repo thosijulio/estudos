@@ -31,8 +31,15 @@ module.exports = {
       },
       courseId: {
         allowNull: false,
-        type: Sequelize.STRING,
-      }
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'courses',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',  
+      },
+
     })
     /**
      * Add altering commands here.

@@ -10,13 +10,22 @@ const StudentSchema = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       email: DataTypes.STRING,
       birthDay: DataTypes.DATE,
-      active: DataTypes.BOOLEAN
+      active: DataTypes.BOOLEAN,
+      idCourse: DataTypes.INTEGER,
     },
     {
       tableName: 'students',
       timestamps: false,
+      underscored: false,
     },
   );
+
+  StudentTable.associate = (models) => {
+    StudentTable.belongsTo(models.Course, {
+      foreignKey: 'idCourse',
+      as: 'course',
+    })
+  }
 
   return StudentTable;
 }
