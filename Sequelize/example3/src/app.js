@@ -1,5 +1,5 @@
 const express = require('express');
-const { courseRoute, studentRoute } = require('./routes/course/router');
+const { courseRoute, studentRoute } = require('./routes/routes');
 
 const app = express();
 

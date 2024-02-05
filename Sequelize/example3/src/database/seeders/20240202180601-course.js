@@ -2,6 +2,11 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
+    /**
+   * 
+   * @param {import('sequelize').QueryInterface} queryInterface 
+   * @param {import('sequelize').Sequelize} Sequelize 
+   */
   async up (queryInterface, _Sequelize) {
     await queryInterface.bulkInsert(
       'courses',
@@ -31,7 +36,7 @@ module.exports = {
     )
   },
 
-  async down (queryInterface, Sequelize) {
+  async down (queryInterface, _Sequelize) {
     /**
      * Add commands to revert seed here.
      *

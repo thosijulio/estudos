@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * 
+ * @param {import('sequelize').sequelize} sequelize 
+ * @param {import('sequelize').DataTypes} DataTypes 
+ * @returns 
+ */
 const CourseSchema = (sequelize, DataTypes) => {
   const CourseTable = sequelize.define('Course', {
     name: DataTypes.STRING,
@@ -13,6 +19,13 @@ const CourseSchema = (sequelize, DataTypes) => {
     timestamps: false,
   }
   );
+
+  CourseTable.associate = (models) => {
+    CourseTable.hasMany(models.Student, {
+      as: 'students',
+      foreignKey: 'courseId'
+    })
+  }
 
   return CourseTable;
 }

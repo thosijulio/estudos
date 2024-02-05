@@ -1,7 +1,7 @@
-const { Student } = require('../database/models');
+const { Student, Course } = require('../database/models');
 
 const getStudents = async () => {
-  const students = await Student.findAll();
+  const students = await Student.findAll({ include: { model: Course, as: 'course' } });
 
   return students;
 }

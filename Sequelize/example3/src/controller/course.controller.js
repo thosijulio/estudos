@@ -36,9 +36,17 @@ const removeCourse = async (req, res) => {
   }
 }
 
+const getCourseById = async (req, res) => {
+  const { id, withStudents } = req.params;
+  const course = await courseService.getCourseById(id, withStudents)
+
+  res.status(200).json(course);
+}
+
 module.exports = {
   createCourse,
   getCourses,
   updateCourse,
   removeCourse,
+  getCourseById,
 }
