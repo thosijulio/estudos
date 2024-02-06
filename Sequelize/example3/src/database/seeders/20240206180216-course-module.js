@@ -17,26 +17,26 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    queryInterface.bulkInsert('courses-modules', [
+    await queryInterface.bulkInsert('courses-modules', [
       {
-        courseId: 3,
-        moduleId: 2,
+        idCourse: 3,
+        idModule: 2,
       },
       {
-        courseId: 2,
-        moduleId: 1,
+        idCourse: 2,
+        idModule: 1,
       },
       {
-        courseId: 1,
-        moduleId: 1,
+        idCourse: 1,
+        idModule: 1,
       },
       {
-        courseId: 2,
-        moduleId: 2,
+        idCourse: 2,
+        idModule: 2,
       },
       {
-        courseId: 3,
-        moduleId: 3,
+        idCourse: 3,
+        idModule: 3,
       },
     ])
   },
@@ -47,7 +47,7 @@ module.exports = {
    * @param {import('sequelize').Sequelize} Sequelize 
    */
   async down(queryInterface, _Sequelize) {
-    queryInterface.bulkDelete('courses-modules', null, {});
+    await queryInterface.bulkDelete('courses-modules', null, {});
     /**
      * Add commands to revert seed here.
      *

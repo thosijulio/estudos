@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Course, Student } = require('../database/models');
+const { Course, Student, Module } = require('../database/models');
 
 const addCourse = async (newCourse) => {
   Course.create(newCourse);
@@ -10,12 +10,17 @@ const getCourses = async () => {
   // Op: usando operadores para realizar consultar where no banco
   return Course.findAll(
     {
-      include: {
-        model: Student, as: 'students'
-      },
+      include: [
+        {
+          model: Student, as: 'students',
+        },
+        {
+          model: Module, as: 'modules',
+        }
+      ],
       where: {
         [Op.and]: [
-          { active: true }
+          { active: true | false }
         ]
       },
       attributes: [

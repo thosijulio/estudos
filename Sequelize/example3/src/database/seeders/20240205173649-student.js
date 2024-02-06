@@ -8,7 +8,7 @@ module.exports = {
    * @param {import('sequelize').Sequelize} Sequelize 
    */
   async up (queryInterface, _Sequelize) {
-    queryInterface.bulkInsert(
+    await queryInterface.bulkInsert(
       'students',
       [
         {
@@ -30,6 +30,6 @@ module.exports = {
   },
 
   async down (queryInterface, _Sequelize) {
-    queryInterface.bulkDelete('students', null, {});
+    await queryInterface.bulkDelete('students', null, {});
   }
 };

@@ -10,7 +10,7 @@ module.exports = {
    * @param {import('sequelize').Sequelize} Sequelize 
    */
   async up(queryInterface, _Sequelize) {
-    queryInterface.bulkInsert(MODULES, [
+    await queryInterface.bulkInsert(MODULES, [
       {
         name: 'Fundamentos',
         description: 'Base para programação',
@@ -65,7 +65,7 @@ module.exports = {
    * @param {import('sequelize').Sequelize} Sequelize 
   */
   async down(queryInterface, _Sequelize) {
-    queryInterface.bulkDelete(MODULES);
+    await queryInterface.bulkDelete(MODULES);
     /**
      * Add commands to revert seed here.
      *

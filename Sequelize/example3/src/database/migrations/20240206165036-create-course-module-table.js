@@ -50,7 +50,7 @@ module.exports = {
    * @param {import('sequelize')} Sequelize 
    */
   async down(queryInterface, _Sequelize) {
-    queryInterface.dropTable(COURSES_MODULES, null, {});
+    await queryInterface.dropTable(COURSES_MODULES, null, {});
     /**
      * Add reverting commands here.
      *
