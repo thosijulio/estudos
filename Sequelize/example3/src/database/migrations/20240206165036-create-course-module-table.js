@@ -1,37 +1,22 @@
 'use strict';
 
-const STUDENTS = students;
+const COURSES_MODULES = 'courses-modules'
+
+/*
+  EXEMPLO DE TABELA N-M 
+*/
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  // JSDOCS !!!
   /**
    * 
    * @param {import('sequelize').QueryInterface} queryInterface 
    * @param {import('sequelize')} Sequelize 
    */
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable(STUDENTS, {
-      id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
+    await queryInterface.createTable(COURSES_MODULES, {
+      idCourse: {
         primaryKey: true,
-        autoIncrement: true,
-      },
-      name: {
-        type: Sequelize.STRING,
-      },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      birthDay: {
-        type: Sequelize.DATE,
-      },
-      active: {
-        type: Sequelize.BOOLEAN,
-      },
-      courseId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
@@ -39,9 +24,17 @@ module.exports = {
           key: 'id',
         },
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',  
       },
-
+      idModule: {
+        primaryKey: true,
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'modules',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+      }
     })
     /**
      * Add altering commands here.
@@ -56,8 +49,8 @@ module.exports = {
    * @param {import('sequelize').QueryInterface} queryInterface 
    * @param {import('sequelize')} Sequelize 
    */
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable(STUDENTS);
+  async down(queryInterface, _Sequelize) {
+    queryInterface.dropTable(COURSES_MODULES, null, {});
     /**
      * Add reverting commands here.
      *

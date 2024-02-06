@@ -2,7 +2,7 @@
 
 /**
  * 
- * @param {import('sequelize').sequelize} sequelize 
+ * @param {import('sequelize').Sequelize} sequelize 
  * @param {import('sequelize').DataTypes} DataTypes 
  * @returns 
  */

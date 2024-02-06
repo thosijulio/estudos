@@ -24,8 +24,8 @@ const StudentSchema = (sequelize, DataTypes) => {
     StudentTable.belongsTo(models.Course, {
       foreignKey: 'courseId',
       as: 'course',
-    })
-  }
+    });
+  };
 
   return StudentTable;
 }
