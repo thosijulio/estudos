@@ -1,7 +1,11 @@
-FROM node:20.0.1:lite
+FROM node:20.11.0-slim
 
-WORKDIR /opt/node/app
+WORKDIR /home/node/app
 
-RUN npm install
+COPY / /home/node/app/
 
-ENTRYPOINT [ "sleep", "infinity" ]
+RUN "npm" "install"
+
+ENTRYPOINT [ "npm", "run" ]
+
+CMD [ "dev" ]

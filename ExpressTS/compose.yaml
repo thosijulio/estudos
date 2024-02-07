@@ -1,14 +1,18 @@
 version: '3'
 services:
   api:
-    build: /
+    build: ./
     depends_on:
       - database
     container_name: ExpressTS-API
-    expose:
+    # Mesmo que `docker run -t (terminal)`
+    tty: true
+    # Mesmo que `docker run -i (interativo)`
+    stdin_open: true
+    ports:
       - 3001:3001
     volumes:
-      - ./:opt/node/app
+      - ./:/home/node/app
 
   database:
     image: mysql
