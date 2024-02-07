@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api:
+    build: /
+    depends_on:
+      - database
+    container_name: ExpressTS-API
+    expose:
+      - 3001:3001
+    volumes:
+      - ./:opt/node/app
+
+  database:
+    image: mysql
+    ports:
+      - 3307:3306
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
