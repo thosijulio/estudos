@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
+    "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start": "ts-node src/server.ts",
     "dev": "ts-node-dev --poll src/server.ts"
   },
@@ -13,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/sequelize": "^4.28.20",
+    "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.1",
